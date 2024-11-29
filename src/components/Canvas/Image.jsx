@@ -1,12 +1,25 @@
 import React, { useRef } from 'react';
 
-import { ScrollScene, UseCanvas, styles } from '@14islands/r3f-scroll-rig';
+import {
+  ScrollScene,
+  UseCanvas,
+  styles,
+  useScrollRig,
+} from '@14islands/r3f-scroll-rig';
 
 function Image({ src }) {
   const el = useRef();
+
+  const { hasSmoothScrollbar } = useScrollRig();
+
   return (
     <>
-      <img ref={el} className={styles.hiddenWhenSmooth} src={src} />
+      <img
+        ref={el}
+        className={styles.hiddenWhenSmooth}
+        src={src}
+        alt="This will be loaded as a texture"
+      />
       <UseCanvas>
         <ScrollScene track={el}>
           {({ scale }) => (

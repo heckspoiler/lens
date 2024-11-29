@@ -1,11 +1,11 @@
 import './App.css';
-import Canvas from './components/Canvas/Canvas';
+import ThreeCanvas from './components/Canvas/ThreeCanvas';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Canvas />
+        <ThreeCanvas />
       </header>
     </div>
   );
