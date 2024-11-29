@@ -1,4 +1,4 @@
-# Shader Monday I
+# Ozelot Binary Lab I
 
 A creative experiment featuring a refractive lens effect that distorts and transforms underlying elements through shader magic. The lens creates dynamic visual interactions as you scroll, bending and warping content in real-time.
 
