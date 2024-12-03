@@ -7,6 +7,7 @@ export default function ThreeCanvas() {
     <>
       <article>
         <h1>Hello World</h1>
+        <h3>Bye World</h3>
       </article>
 
       <SmoothScrollbar />

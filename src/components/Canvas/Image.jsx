@@ -7,7 +7,7 @@ import {
   useScrollRig,
 } from '@14islands/r3f-scroll-rig';
 
-function Image({ src }) {
+export function Image({ src }) {
   const el = useRef();
 
   const { hasSmoothScrollbar } = useScrollRig();

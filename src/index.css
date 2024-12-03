@@ -1,9 +1,38 @@
+@font-face {
+  font-family: "Satoshi Bold";
+  src: url("../public/fonts/Satoshi-Bold.otf");
+}
+
+@font-face {
+  font-family: "Satoshi Regular";
+  src: url("../public/fonts/Satoshi-Regular.otf");
+}
+
+@font-face {
+  font-family: "Pokemon Classic";
+  src: url("../public/fonts/pixe.ttf");
+}
+
+
+:root {
+  --main-font: "Satoshi Bold";
+  --funky-font: "Pokemon Classic";
+  --black: rgb(41, 41, 41);
+}
+
 body {}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--main-font);
+  color: var(--black);
+}
+
+
+h3 {
+  font-family: var(--funky-font);
 }
 
 code {
