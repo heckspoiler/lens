@@ -39,3 +39,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.JellyPlaceholder {
+  aspect-ratio: 16/10;
+  width: 66%;
+  margin: auto;
+}

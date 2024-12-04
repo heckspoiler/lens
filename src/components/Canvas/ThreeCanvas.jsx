@@ -1,13 +1,33 @@
-import { GlobalCanvas, SmoothScrollbar } from '@14islands/r3f-scroll-rig';
+import React, { useRef, useState } from 'react';
 
-import '@14islands/r3f-scroll-rig/css';
-import WebGLBackground from './WebGLBackground';
+import { ImageCube } from './ImageCube';
 
-export default function ThreeCanvas() {
+import { SmoothScrollbar } from '@14islands/r3f-scroll-rig';
+import { Loader } from '@react-three/drei';
+
+export default function App() {
+  const eventSource = useRef();
+  const [enabled, setEnabled] = useState(true);
+
   return (
-    <>
-      <SmoothScrollbar />
-      <GlobalCanvas></GlobalCanvas>
-    </>
+    <div ref={eventSource}>
+      <SmoothScrollbar enabled={enabled} config={{ syncTouch: true }} />
+      <article>
+        <section>
+          <ImageCube src="images/front.jpg" className="JellyPlaceholder" />
+        </section>
+      </article>
+
+      <Loader
+        containerStyles={{
+          background: 'transparent',
+          top: 'auto',
+          bottom: 0,
+          height: '5px',
+        }}
+        innerStyles={{ background: 'white', width: '100vw', height: '5px' }}
+        barStyles={{ background: '#6e6bcd', height: '100%' }}
+      />
+    </div>
   );
 }
