@@ -16,28 +16,31 @@ export function ImageCube({ src, ...props }) {
   const img = useRef();
   const { hasSmoothScrollbar } = useScrollRig();
 
-  console.log(hasSmoothScrollbar);
   return (
     <>
-      {/* <div ref={el} {...props}>
+      <div ref={el} {...props}>
         <img
           className={styles.hiddenWhenSmooth}
           ref={img}
           src={src}
-          loading="eager"
           decode="async"
           alt="This will be loaded as a texture"
         />
-      </div> */}
-      <UseCanvas debug={true}>
-        <ScrollScene track={el}>
-          {(props) => <WebGLCube img={img} {...props} />}
-        </ScrollScene>
-      </UseCanvas>
+      </div>
+
+      {hasSmoothScrollbar && (
+        <UseCanvas debug={true}>
+          <ScrollScene track={el} debug={true}>
+            {(props) => {
+              console.log('ScrollScene props:', props); // Debug log
+              return <WebGLCube img={img} {...props} />;
+            }}
+          </ScrollScene>
+        </UseCanvas>
+      )}
     </>
   );
 }
-
 function WebGLCube({ img, scale, inViewport }) {
   const mesh = useRef();
   const texture = useImageAsTexture(img);
@@ -49,9 +52,9 @@ function WebGLCube({ img, scale, inViewport }) {
   });
 
   const spring = useSpring({
-    scale: inViewport ? scale.times(1) : scale.times(0),
-    config: inViewport ? config.wobbly : config.stiff,
-    delay: inViewport ? 200 : 0,
+    scale: scale,
+    config: config.wobbly,
+    delay: 0,
   });
 
   return (
@@ -60,7 +63,7 @@ function WebGLCube({ img, scale, inViewport }) {
       <MeshWobbleMaterial
         factor={0}
         speed={2}
-        color="#fff"
+        color="#red"
         map={texture}
         roughness={0.14}
         metalness={0}
