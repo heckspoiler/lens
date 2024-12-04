@@ -14,6 +14,15 @@ import { MeshWobbleMaterial } from '@react-three/drei';
 
 import { a, useSpring, config } from 'react-spring/three';
 
-export default function ImageCube() {
-  return <div>ImageCube</div>;
+export default function ImageCube({ src, ...props }) {
+  const el = useRef();
+  const img = useRef();
+
+  const { hasSmoothScrollbar } = useScrollbar();
+
+  return (
+    <>
+      <div ref={el} {...props}></div>
+    </>
+  );
 }

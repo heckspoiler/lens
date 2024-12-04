@@ -7,9 +7,7 @@ export default function ThreeCanvas() {
   return (
     <>
       <SmoothScrollbar />
-      <GlobalCanvas>
-        <WebGLBackground />
-      </GlobalCanvas>
+      <GlobalCanvas></GlobalCanvas>
     </>
   );
 }
