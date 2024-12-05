@@ -46,4 +46,5 @@ code {
   aspect-ratio: 16/10;
   width: 66%;
   margin: auto;
+  background-color: transparent;
 }
